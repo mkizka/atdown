@@ -1,0 +1,39 @@
+{
+  "name": "@mkizka/atdown-core",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "lint": "eslint .",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@atproto/api": "^0.18.0",
+    "@atproto/did": "^0.2.1",
+    "@atproto/identity": "^0.4.9",
+    "@atproto/syntax": "^0.4.1",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "prompts": "^2.4.2",
+    "valibot": "^1.1.0"
+  },
+  "devDependencies": {
+    "@mkizka/eslint-config": "^7.1.2",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.10.0",
+    "@types/prompts": "^2.4.9",
+    "@vitest/ui": "^4.0.8",
+    "eslint": "^9.29.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.8",
+    "vitest-mock-extended": "^3.1.0"
+  }
+}

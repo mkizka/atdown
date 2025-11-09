@@ -1,0 +1,29 @@
+{
+  "name": "atdown",
+  "version": "0.0.0",
+  "scripts": {
+    "all": "run-s build typecheck format test",
+    "atdown": "pnpm build && dotenv -- node ./packages/cli/dist/cli.js",
+    "build": "pnpm -r build",
+    "format": "prettier --write . && pnpm -r lint --fix",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7",
+    "@mkizka/atdown-whtwnd": "workspace:*",
+    "@tsconfig/node-lts": "^22.0.2",
+    "@tsconfig/strictest": "^2.0.7",
+    "dotenv-cli": "^11.0.0",
+    "npm-run-all2": "^8.0.4",
+    "prettier": "^3.6.2",
+    "prettier-plugin-pkg": "^0.21.2"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "plugins": [
+      "prettier-plugin-pkg"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@mkizka/atdown",
+  "version": "0.0.0",
+  "type": "module",
+  "bin": {
+    "atdown": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mkizka/atdown-core": "workspace:*",
+    "commander": "^14.0.2",
+    "valibot": "^1.1.0"
+  },
+  "devDependencies": {
+    "@mkizka/eslint-config": "^7.1.2",
+    "@types/node": "^24.10.0",
+    "eslint": "^9.29.0",
+    "typescript": "^5.9.3"
+  }
+}
