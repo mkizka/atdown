@@ -20,7 +20,7 @@ program
     try {
       const config = await loadConfig(process.cwd());
       const password = await getPassword();
-      await core.push(config, password);
+      await core.pushCommand(config, password);
       // eslint-disable-next-line no-console
       console.log("✓ Push completed successfully");
     } catch (error) {
@@ -37,7 +37,7 @@ program
     try {
       const config = await loadConfig(process.cwd());
       const password = await getPassword();
-      await core.pull(config, password);
+      await core.pullCommand(config, password);
       // eslint-disable-next-line no-console
       console.log("✓ Pull completed successfully");
     } catch (error) {
@@ -53,7 +53,7 @@ program
   .action(async () => {
     try {
       const config = await loadConfig(process.cwd());
-      const filePath = await core.createNew(config);
+      const filePath = await core.newCommand(config);
       // eslint-disable-next-line no-console
       console.log(`✓ Created: ${filePath}`);
     } catch (error) {

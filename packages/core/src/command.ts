@@ -19,17 +19,17 @@ const createInfra = (config: Config) => {
   };
 };
 
-export const pull = (config: Config, password: string) => {
+export const pullCommand = (config: Config, password: string) => {
   const infra = createInfra(config);
   return doPull(config, password, infra);
 };
 
-export const push = (config: Config, password: string) => {
+export const pushCommand = (config: Config, password: string) => {
   const infra = createInfra(config);
   return doPush(config, password, infra);
 };
 
-export const createNew = (config: Config) => {
+export const newCommand = (config: Config) => {
   const infra = createInfra(config);
   return doNew(config, infra);
 };
