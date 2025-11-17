@@ -21,10 +21,8 @@ program
       const config = await loadConfig(process.cwd());
       const password = await getPassword();
       await core.pushCommand(config, password);
-      // eslint-disable-next-line no-console
       console.log("✓ Push completed successfully");
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Error:", error instanceof Error ? error.message : String(error));
       process.exit(1);
     }
@@ -38,10 +36,8 @@ program
       const config = await loadConfig(process.cwd());
       const password = await getPassword();
       await core.pullCommand(config, password);
-      // eslint-disable-next-line no-console
       console.log("✓ Pull completed successfully");
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Error:", error instanceof Error ? error.message : String(error));
       process.exit(1);
     }
@@ -54,10 +50,8 @@ program
     try {
       const config = await loadConfig(process.cwd());
       const filePath = await core.newCommand(config);
-      // eslint-disable-next-line no-console
       console.log(`✓ Created: ${filePath}`);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Error:", error instanceof Error ? error.message : String(error));
       process.exit(1);
     }
