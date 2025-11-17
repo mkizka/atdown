@@ -44,12 +44,23 @@ export class MarkdownRepository {
     return path.join(this.#config.entriesDir, entry.collection, `${entry.rkey}.md`);
   }
 
-  async save(entry: MarkdownEntry): Promise<void> {
+  async save(entry: MarkdownEntry): Promise<string> {
     const filePath = this.#getPath(entry);
     const markdownText = this.#parser.stringify(entry.markdown);
 
     await fs.mkdir(path.dirname(filePath), { recursive: true });
     await fs.writeFile(filePath, markdownText, "utf-8");
+    return filePath;
+  }
+
+  async exists(entry: MarkdownEntry): Promise<boolean> {
+    const filePath = this.#getPath(entry);
+    try {
+      await fs.access(filePath);
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   async delete(entry: MarkdownEntry): Promise<void> {

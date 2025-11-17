@@ -1,3 +1,4 @@
+import { doNew } from "./commands/new.js";
 import { doPull } from "./commands/pull.js";
 import { doPush } from "./commands/push.js";
 import type { Config } from "./config.js";
@@ -26,4 +27,9 @@ export const pull = (config: Config, password: string) => {
 export const push = (config: Config, password: string) => {
   const infra = createInfra(config);
   return doPush(config, password, infra);
+};
+
+export const createNew = (config: Config) => {
+  const infra = createInfra(config);
+  return doNew(config, infra);
 };

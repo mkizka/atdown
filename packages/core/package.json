@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@atproto/api": "^0.18.0",
+    "@atproto/common-web": "^0.4.3",
     "@atproto/did": "^0.2.1",
     "@atproto/identity": "^0.4.9",
     "@atproto/syntax": "^0.4.1",

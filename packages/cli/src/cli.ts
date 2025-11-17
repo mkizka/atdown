@@ -47,4 +47,20 @@ program
     }
   });
 
+program
+  .command("new")
+  .description("新しいMarkdownファイルを作成")
+  .action(async () => {
+    try {
+      const config = await loadConfig(process.cwd());
+      const filePath = await core.createNew(config);
+      // eslint-disable-next-line no-console
+      console.log(`✓ Created: ${filePath}`);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error("Error:", error instanceof Error ? error.message : String(error));
+      process.exit(1);
+    }
+  });
+
 program.parse();
