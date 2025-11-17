@@ -12,7 +12,6 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "lint": "eslint .",
-    "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -21,9 +20,7 @@
   "devDependencies": {
     "@mkizka/eslint-config": "^7.1.2",
     "@types/node": "^24.10.0",
-    "@vitest/ui": "^4.0.8",
     "eslint": "^9.29.0",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.8"
+    "typescript": "^5.9.3"
   }
 }
