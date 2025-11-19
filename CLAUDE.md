@@ -8,11 +8,12 @@ atdownは、MarkdownファイルとATProtoのレコードを双方向同期す�
 
 ## モノレポ構成
 
-このプロジェクトはpnpm workspacesを使用したモノレポで、以下の3つのパッケージで構成されています：
+このプロジェクトはpnpm workspacesを使用したモノレポで、以下のパッケージで構成されています：
 
 - `packages/core`: コアロジックを含むライブラリ（`@mkizka/atdown-core`）
 - `packages/cli`: CLIインターフェース（`@mkizka/atdown`）
 - `packages/whtwnd`: WhiteWind用のコンバーター実装（`@mkizka/atdown-whtwnd`）
+- `packages/create-atdown`: プロジェクトスキャフォールド（`@mkizka/create-atdown`）
 
 ## 開発コマンド
 
