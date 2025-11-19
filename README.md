@@ -51,11 +51,11 @@ atdown new
 
 ## パッケージ構成
 
-| パッケージ | 説明 |
-|-----------|------|
-| [@mkizka/atdown](./packages/cli) | CLIツール本体 |
-| [@mkizka/atdown-core](./packages/core) | コアライブラリ |
-| [@mkizka/atdown-whtwnd](./packages/whtwnd) | WhiteWind用コンバーター |
+| パッケージ                                        | 説明                         |
+| ------------------------------------------------- | ---------------------------- |
+| [@mkizka/atdown](./packages/cli)                  | CLIツール本体                |
+| [@mkizka/atdown-core](./packages/core)            | コアライブラリ               |
+| [@mkizka/atdown-whtwnd](./packages/whtwnd)        | WhiteWind用コンバーター      |
 | [@mkizka/create-atdown](./packages/create-atdown) | プロジェクトスキャフォールド |
 
 ## ライセンス

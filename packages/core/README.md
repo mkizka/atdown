@@ -25,14 +25,14 @@ export default createConverter({
   recordToMarkdown: (record) => {
     return {
       content: record.content,
-      metadata: { title: record.title }
+      metadata: { title: record.title },
     };
   },
   markdownToRecord: (markdown) => {
     return {
       $type: "com.example.mycollection",
       content: markdown.content,
-      title: markdown.metadata.title
+      title: markdown.metadata.title,
     };
   },
 });
