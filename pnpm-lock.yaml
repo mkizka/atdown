@@ -116,6 +116,28 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(typescript@5.9.3)(vitest@4.0.8)
 
+  packages/create-atdown:
+    dependencies:
+      prompts:
+        specifier: ^2.4.2
+        version: 2.4.2
+    devDependencies:
+      '@mkizka/eslint-config':
+        specifier: ^7.1.2
+        version: 7.1.2(@typescript-eslint/eslint-plugin@8.46.3(@typescript-eslint/parser@8.46.3(eslint@9.39.1)(typescript@5.9.3))(eslint@9.39.1)(typescript@5.9.3))(eslint@9.39.1)(typescript@5.9.3)
+      '@types/node':
+        specifier: ^24.10.0
+        version: 24.10.0
+      '@types/prompts':
+        specifier: ^2.4.9
+        version: 2.4.9
+      eslint:
+        specifier: ^9.29.0
+        version: 9.39.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
   packages/whtwnd:
     dependencies:
       '@mkizka/atdown-core':

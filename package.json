@@ -5,6 +5,7 @@
     "all": "run-s build typecheck format test",
     "atdown": "pnpm build && dotenv -- node ./packages/cli/dist/cli.js",
     "build": "pnpm -r build",
+    "create-atdown": "pnpm build && dotenv -- node ./packages/create-atdown/dist/index.js",
     "format": "prettier --write . && pnpm -r lint --fix",
     "lint": "pnpm -r lint",
     "test": "pnpm -r test",

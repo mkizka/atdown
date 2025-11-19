@@ -1,0 +1,14 @@
+{
+  "name": "{{projectName}}",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "push": "atdown push",
+    "pull": "atdown pull"
+  },
+  "dependencies": {
+    "@mkizka/atdown": "latest",
+    "@mkizka/atdown-whtwnd": "latest"
+  }
+}
