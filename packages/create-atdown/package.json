@@ -1,6 +1,6 @@
 {
   "name": "@mkizka/create-atdown",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "bin": {
     "create-atdown": "./dist/index.js"
