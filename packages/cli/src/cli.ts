@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import "dotenv/config";
+
 import * as core from "@mkizka/atdown-core";
 import { Command } from "commander";
 
