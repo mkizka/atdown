@@ -15,12 +15,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "prompts": "^2.4.2"
+    "@inquirer/prompts": "^8.0.1"
   },
   "devDependencies": {
     "@mkizka/eslint-config": "^7.1.2",
     "@types/node": "^24.10.0",
-    "@types/prompts": "^2.4.9",
     "eslint": "^9.29.0",
     "typescript": "^5.9.3"
   }

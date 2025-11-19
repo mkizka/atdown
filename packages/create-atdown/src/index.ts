@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import prompts from "prompts";
+import { input } from "@inquirer/prompts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const templatesDir = path.join(__dirname, "..", "templates");
@@ -26,40 +26,24 @@ function createProject(projectDir: string, replacements: Record<string, string>)
   }
 }
 
-const required = (value: unknown, message: string) => {
-  if (typeof value === "string" && value.trim()) {
-    return value;
-  }
-  throw new Error(message);
-};
-
 async function main() {
-  let projectName = process.argv[2];
-
-  if (!projectName) {
-    const response = await prompts({
-      type: "text",
-      name: "projectName",
+  const projectName =
+    process.argv[2] ??
+    (await input({
       message: "Project name:",
-    });
-    projectName = required(response.projectName, "Project name is required");
-  }
+      required: true,
+    }));
 
-  const response = await prompts([
-    {
-      type: "text",
-      name: "handle",
-      message: "ATProto handle (e.g. user.bsky.social):",
-    },
-    {
-      type: "text",
-      name: "entriesDir",
-      message: "Entries directory:",
-      initial: "./entries",
-    },
-  ]);
-  const handle = required(response.handle, "Handle is required");
-  const entriesDir = required(response.entriesDir, "Entries directory is required");
+  const handle = await input({
+    message: "ATProto handle (e.g. user.bsky.social):",
+    required: true,
+  });
+
+  const entriesDir = await input({
+    message: "Entries directory:",
+    default: "./entries",
+    required: true,
+  });
 
   const projectDir = path.resolve(process.cwd(), projectName);
   if (fs.existsSync(projectDir)) {
