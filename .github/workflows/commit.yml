@@ -18,7 +18,10 @@ jobs:
           npm i -g corepack@latest
           corepack enable pnpm
       - run: pnpm i
-      - run: pnpm all
+      - run: pnpm build
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
   release:
     runs-on: ubuntu-latest
     needs: test
