@@ -2,22 +2,30 @@
 
 import "dotenv/config";
 
+import { readFileSync } from "node:fs";
+
 import * as core from "@mkizka/atdown-core";
 import { Command } from "commander";
+import * as v from "valibot";
 
 import { loadConfig } from "./config-loader.js";
 import { getPassword } from "./get-password.js";
+
+const packageJson = v.parse(
+  v.object({ version: v.string() }),
+  JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf-8")),
+);
 
 const program = new Command();
 
 program
   .name("atdown")
-  .description("Markdownで表現可能なATProtoレコードをPDSとローカルで同期・更新するCLI")
-  .version("0.0.0");
+  .description("CLI to sync and update ATProto records with local Markdown files")
+  .version(packageJson.version);
 
 program
   .command("push")
-  .description("ローカルのMarkdownファイルをPDSにアップロード")
+  .description("Upload local Markdown files to PDS")
   .action(async () => {
     try {
       const config = await loadConfig(process.cwd());
@@ -32,7 +40,7 @@ program
 
 program
   .command("pull")
-  .description("PDSのレコードをローカルにMarkdownファイルとして保存")
+  .description("Download PDS records and save as local Markdown files")
   .action(async () => {
     try {
       const config = await loadConfig(process.cwd());
@@ -47,7 +55,7 @@ program
 
 program
   .command("new")
-  .description("新しいMarkdownファイルを作成")
+  .description("Create a new Markdown file")
   .action(async () => {
     try {
       const config = await loadConfig(process.cwd());
