@@ -12,6 +12,10 @@ npm install -g @mkizka/atdown
 
 ```bash
 npx @mkizka/create-atdown
+# or
+yarn create @mkizka/atdown
+# or
+pnpm create @mkizka/atdown
 ```
 
 または手動で`atdown.json`を作成:

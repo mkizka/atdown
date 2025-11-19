@@ -6,6 +6,10 @@ atdownプロジェクトのスキャフォールドツール。
 
 ```bash
 npx @mkizka/create-atdown
+# or
+yarn create @mkizka/atdown
+# or
+pnpm create @mkizka/atdown
 ```
 
 対話形式で以下を設定します:
