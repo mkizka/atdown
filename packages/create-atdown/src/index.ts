@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { input } from "@inquirer/prompts";
+import { checkbox, input } from "@inquirer/prompts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const templatesDir = path.join(__dirname, "..", "templates");
@@ -14,8 +14,7 @@ function createProject(projectDir: string, replacements: Record<string, string>)
   const files = fs.readdirSync(templatesDir);
   for (const file of files) {
     const srcPath = path.join(templatesDir, file);
-    // "gitignore" -> ".gitignore" (npm publish ignores .gitignore)
-    const destName = file === "gitignore" ? ".gitignore" : file;
+    const destName = file.replace(/\.tmpl$/, "");
     const destPath = path.join(projectDir, destName);
 
     let content = fs.readFileSync(srcPath, "utf-8");
@@ -45,12 +44,24 @@ async function main() {
     required: true,
   });
 
+  const converters = await checkbox({
+    message: "Select converters:",
+    choices: [{ name: "@mkizka/atdown-whtwnd", value: "@mkizka/atdown-whtwnd", checked: true }],
+    required: true,
+  });
+
   const projectDir = path.resolve(process.cwd(), projectName);
   if (fs.existsSync(projectDir)) {
     throw new Error(`Directory ${projectName} already exists`);
   }
 
-  createProject(projectDir, { projectName, handle, entriesDir });
+  createProject(projectDir, {
+    projectName,
+    handle,
+    entriesDir,
+    converters: JSON.stringify(converters),
+    converterDeps: converters.map((c) => `"${c}": "latest"`).join(",\n    "),
+  });
 
   console.log(`
 Created ${projectName} successfully!
